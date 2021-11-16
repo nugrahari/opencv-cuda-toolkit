@@ -2,47 +2,47 @@ import os
 
 print("\n1. ")
 os.system("sudo apt update")
-os.system("sudo apt upgrade")
+# os.system("sudo apt upgrade")
 print("-------------------------------------------------------")
 print("\n2. ")
-os.system("sudo apt install build-essential cmake pkg-config unzip yasm git checkinstall")
+os.system("sudo apt -y install build-essential cmake pkg-config unzip yasm git checkinstall")
 print("-------------------------------------------------------")
 print("\n3. ")
-os.system("sudo apt install libjpeg-dev libpng-dev libtiff-dev")
+os.system("sudo apt -y install libjpeg-dev libpng-dev libtiff-dev")
 print("-------------------------------------------------------")
 print("\n4. ")
-os.system("sudo apt install libavcodec-dev libavformat-dev libswscale-dev libavresample-dev")
-os.system("sudo apt install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev")
-os.system("sudo apt install libxvidcore-dev x264 libx264-dev libfaac-dev libmp3lame-dev libtheora-dev ")
-os.system("sudo apt install libfaac-dev libmp3lame-dev libvorbis-dev")
+os.system("sudo apt -y install libavcodec-dev libavformat-dev libswscale-dev libavresample-dev")
+os.system("sudo apt -y install libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev")
+os.system("sudo apt -y install libxvidcore-dev x264 libx264-dev libfaac-dev libmp3lame-dev libtheora-dev ")
+os.system("sudo apt -y install libfaac-dev libmp3lame-dev libvorbis-dev")
 print("-------------------------------------------------------")
 print("\n5. ")
-os.system("sudo apt install libopencore-amrnb-dev libopencore-amrwb-dev")
+os.system("sudo apt -y install libopencore-amrnb-dev libopencore-amrwb-dev")
 print("-------------------------------------------------------")
 print("\n6. ")
-os.system("sudo apt-get install libdc1394-22 libdc1394-22-dev libxine2-dev libv4l-dev v4l-utils")
+os.system("sudo apt-get -y install libdc1394-22 libdc1394-22-dev libxine2-dev libv4l-dev v4l-utils")
 os.system("cd /usr/include/linux")
 os.system("sudo ln -s -f ../libv4l1-videodev.h videodev.h")
 os.system("cd ~")
 print("-------------------------------------------------------")
 print("\n7. ")
-os.system("sudo apt-get install libgtk-3-dev")
+os.system("sudo apt-get -y install libgtk-3-dev")
 print("-------------------------------------------------------")
 print("\n8. ")
-os.system("sudo apt-get install python3-dev python3-pip")
+os.system("sudo apt-get -y install python3-dev python3-pip")
 os.system("sudo -H pip3 install -U pip numpy")
-os.system("sudo apt install python3-testresources")
+os.system("sudo apt -y install python3-testresources")
 print("-------------------------------------------------------")
 print("\n9. ")
-os.system("sudo apt-get install libtbb-dev")
+os.system("sudo apt-get -y install libtbb-dev")
 print("-------------------------------------------------------")
 print("\n10. ")
-os.system("sudo apt-get install libatlas-base-dev gfortran")
+os.system("sudo apt-get -y install libatlas-base-dev gfortran")
 print("-------------------------------------------------------")
 print("\n11. ")
-os.system("sudo apt-get install libprotobuf-dev protobuf-compiler")
-os.system("sudo apt-get install libgoogle-glog-dev libgflags-dev")
-os.system("sudo apt-get install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen")
+os.system("sudo apt-get -y install libprotobuf-dev protobuf-compiler")
+os.system("sudo apt-get -y install libgoogle-glog-dev libgflags-dev")
+os.system("sudo apt-get -y install libgphoto2-dev libeigen3-dev libhdf5-dev doxygen")
 print("-------------------------------------------------------")
 print("-------------------------------------------------------")
 print("-------------------------------------------------------")
@@ -57,25 +57,25 @@ os.system("wget -O opencv.zip https://github.com/opencv/opencv/archive/refs/tags
 os.system("wget -O opencv_contrib.zip https://github.com/opencv/opencv_contrib/archive/refs/tags/4.5.2.zip")
 os.system("unzip opencv.zip")
 os.system("unzip opencv_contrib.zip")
-os.system("sudo pip install virtualenv virtualenvwrapper")
+os.system("sudo pip -y install virtualenv virtualenvwrapper")
 os.system("sudo rm -rf ~/.cache/pip")
 $ echo "Create a virtual environtment for the python binding module (OPTIONAL)"
-$ sudo pip install virtualenv virtualenvwrapper
+$ sudo pip -y install virtualenv virtualenvwrapper
 $ sudo rm -rf ~/.cache/pip
 $ echo "Edit ~/.bashrc"
 $ export WORKON_HOME=$HOME/.virtualenvs
 $ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 $ source /usr/local/bin/virtualenvwrapper.sh
 $ mkvirtualenv cv -p python3
-$ pip install numpy
+$ pip -y install numpy
 
-$ echo "Procced with the installation"
+$ echo "Procced with the -y installation"
 $ cd opencv-4.5.2
 $ mkdir build
 $ cd build
 
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
--D CMAKE_INSTALL_PREFIX=/usr/local \
+-D CMAKE_-y install_PREFIX=/usr/local \
 -D WITH_TBB=ON \
 -D ENABLE_FAST_MATH=1 \
 -D CUDA_FAST_MATH=1 \
@@ -92,11 +92,11 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 -D OPENCV_GENERATE_PKGCONFIG=ON \
 -D OPENCV_PC_FILE_NAME=opencv.pc \
 -D OPENCV_ENABLE_NONFREE=ON \
--D OPENCV_PYTHON3_INSTALL_PATH=~/.virtualenvs/cv/lib/python3.8/site-packages \
+-D OPENCV_PYTHON3_-y install_PATH=~/.virtualenvs/cv/lib/python3.8/site-packages \
 -D PYTHON_EXECUTABLE=~/.virtualenvs/cv/bin/python \
 -D OPENCV_EXTRA_MODULES_PATH=~/Downloads/opencv_contrib-4.5.2/modules \
--D INSTALL_PYTHON_EXAMPLES=OFF \
--D INSTALL_C_EXAMPLES=OFF \
+-D -y install_PYTHON_EXAMPLES=OFF \
+-D -y install_C_EXAMPLES=OFF \
 -D BUILD_EXAMPLES=OFF ..
 
 
@@ -114,7 +114,7 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
 
 $ nproc
 $ make -j8
-$ sudo make install
+$ sudo make -y install
 
 $ sudo /bin/bash -c 'echo "/usr/local/lib" >> /etc/ld.so.conf.d/opencv.conf'
 $ sudo ldconfig
