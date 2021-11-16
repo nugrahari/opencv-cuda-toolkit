@@ -1,0 +1,15 @@
+import os
+
+print("\n1. ")
+os.system("lspci | grep -i nvidia")
+print("-------------------------------------------------------")
+print("\n2. ")
+os.system("uname -m && cat /etc/*release")
+print("-------------------------------------------------------")
+print("\n3. ")
+os.system("gcc --version")
+os.system("sudo apt-get gcc")
+print("-------------------------------------------------------")
+print("\n4. ")
+os.system("sudo apt-get install linux-headers-$(uname -r)")
+os.system("uname -r")
